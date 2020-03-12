@@ -21,7 +21,16 @@ echo($id);
 
                     You are logged in!
 
-                    <div id="app"></div>
+                    <div id="app">
+                    <!-- <my-header></my-header>
+        <RouterView/> 
+      <my-footer> </my-footer> -->
+
+      <router-link to="/todoEdit">todoEdit</router-link>
+    <router-view/>
+
+
+                    </div>
 
                     
                 </div>
