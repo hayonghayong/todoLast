@@ -13,6 +13,17 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'api'], function() {
+
+// headerに名前表示
+    Route::get('/getUsers', 'UsersController@getUsers');
+
+	// 登録todo表示
+    Route::get('/get', 'TodosController@getTodos');
+
+	// todo登録
+    Route::post('/add', 'TodosController@addTodo'); 
+
+    // todo削除
+    Route::post('/del',  'TodosController@destroy');
 });

@@ -17,6 +17,17 @@
         </v-card-text>
       </v-container>
     </v-card>
+
+    <tbody>
+    <tr v-for="todo in todos" v-bind:key="todo.id">  
+      <td>{{ todo.id }}</td>  
+      <td>{{ todo.name }}</td> 
+      <td>
+        <v-btn class="ma-2" outlined color="pink lighten-1" @click="Delete(todo.id)">削除</v-btn>
+      </td>
+    </tr> 
+    </tbody>
+    
   </v-app>
 </template>
 
@@ -38,16 +49,15 @@ export default {
     };
   },
   methods: {
-    // fetchTodos: function(){
-    //   axios.get('/api/get')
-    //   .then(res=>{
-    //     this.todos = res.data
-    //   })
-    // }
+    fetchTodos: function(){
+      axios.get('/api/get')
+      .then(res=>{
+        this.todos = res.data
+      })
+    },
 
     addTodo: function() {
-      axios
-        .post("/api/add", {
+      axios.post("/api/add", {
           name: this.todo
         })
         .then(res => {
@@ -55,11 +65,19 @@ export default {
           this.todos = res.data;
           this.todo = "";
         });
+    },
+    
+    Delete: function(task_id){ 
+    axios.post('/api/del',{
+      id: task_id
+    }).then((res)=>{
+      this.todos = res.data
+    })
     }
-  }
+  },
 
-  //   created() {
-  //   this.fetchTodos()
-  // },
+    created() {
+    this.fetchTodos()
+  },
 };
 </script>
