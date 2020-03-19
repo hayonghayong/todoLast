@@ -1,5 +1,5 @@
 <template>
-<v-app>
+<v-app style="height:0px">
 <my-todo/>
 <my-todo/>
 <my-todo/>

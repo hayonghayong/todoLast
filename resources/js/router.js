@@ -16,6 +16,7 @@ Vue.component("my-footer", myFooter);
 import Top from "./pages/Top.vue";
 import TodoEdit from "./pages/todoEdit.vue";
 import usersEdit from "./pages/usersEdit.vue";
+import logout from "./pages/logout.vue";
 
 
 const routes = [
@@ -32,6 +33,11 @@ const routes = [
         path: "/usersEdit",
         name: "usersEdit",
         component: usersEdit
+    },
+    {
+        path: "/logout",
+        name: "logout",
+        component: logout
     }
 ];
 
