@@ -20,7 +20,7 @@
         <v-col
             cols="3"
             md="3"
-             style="padding-top:15px;"
+            style="padding-top:15px;"
           >
         <v-btn
         icon

@@ -27,10 +27,10 @@
             margin-top:5px;
             color:rgba(0,0,0,.3);
             }
-        h5 > a,a:visited {
+        /* h5 > a,a:visited {
             color:#fff;
             text-decoration:underline
-            }
+            } */
         h5 > a:hover {
             text-decoration:none;
             }
@@ -87,6 +87,11 @@
             color:#777;
             cursor:pointer;
             }
+        .register{
+            color:black;
+            text-align:center;
+            margin-top:10px;
+        }
     </style>
 </head>
 
@@ -120,11 +125,15 @@
         {{ __('ログイン') }}
         </button>
         <br>
-        @if (Route::has('password.request'))
+        <!-- @if (Route::has('password.request'))
         <a href="{{ route('password.request') }}">
         {{ __('パスワードをお忘れの方はこちらへ') }}
         </a>
-        @endif
+        @endif -->
+        <p class="register">
+         <a href="{{ route('register') }}">新規会員登録はこちら</a>
+         </p>
+       
         </div>
     </div>
 
