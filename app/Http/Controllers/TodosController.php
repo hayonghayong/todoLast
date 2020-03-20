@@ -21,7 +21,6 @@ public function getTodos(){
 // todo登録
 
     public function addTodo(Request $request){ 
-      
       $todos = new Todo;
       $todos->user_id = Auth::id();
       $todos->name = $request->name;

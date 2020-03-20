@@ -1,8 +1,8 @@
 <template>
   <v-app
-   style= "height: 10px;">
+   style= "height:0px;">
     <v-footer color="pink lighten-1" dark app>
-    <v-layout wrap>
+    
 
     <v-flex xs2.5 sm6 md4>
       <v-btn icon to="/home">
@@ -37,14 +37,14 @@
        </v-flex>
 
 <v-flex xs2 sm6 md4>
-      <v-btn icon>
+      <v-btn icon to="/logout">
       <v-icon>
         mdi-logout
       </v-icon>
       </v-btn>
        </v-flex>
 
-       </v-layout>
+      
     </v-footer>
   </v-app>
 </template>
