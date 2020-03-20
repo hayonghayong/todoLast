@@ -30,16 +30,17 @@
 
 <v-flex xs2.5 sm6 md4>
       <v-btn icon>
-        <v-icon 
-        >mdi-email-outline
+        <v-icon>
+          mdi-email-outline
         </v-icon>
       </v-btn>
        </v-flex>
 
 <v-flex xs2 sm6 md4>
-      <v-btn icon to="/logout">
+      <v-btn icon href="http://google.co.jp">
       <v-icon>
         mdi-logout
+        <!-- mdi-email-outline -->
       </v-icon>
       </v-btn>
        </v-flex>
@@ -48,3 +49,11 @@
     </v-footer>
   </v-app>
 </template>
+
+<script>
+export default {
+  data: () => ({
+    google: 'https://google.com'
+  })
+  }
+</script>	
