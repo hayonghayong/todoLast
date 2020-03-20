@@ -17,5 +17,14 @@ public function getUsers(){
    return $users;
 }
 
+// user情報更新
+
+public function updateUsers(Request $request){
+  // Print $request;
+  $users = User::where('id',$request->id);
+  $users->update($request->user);
+  return response()->json(['user' => $users]);
+}
+
 
 }

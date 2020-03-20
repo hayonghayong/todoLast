@@ -12,14 +12,13 @@
 
     <v-card-text>
       <v-form>
-        <v-text-field prepend-icon="mdi-account-circle" label="名前" value='aaa'/>
-        <span>{{users.name}}</span>
+        <v-text-field prepend-icon="mdi-account-circle" label="名前" v-model="users.name" />
         
-        <v-text-field prepend-icon="mdi-email-outline" label="メールアドレス" value='ここに入れたいです'/>
-        <span>{{users.email}}</span>
+        <v-text-field prepend-icon="mdi-email-outline" label="メールアドレス" v-model="users.email"/>
+        
       </v-form>
       <div class="text-center">
-      <v-btn class="ma-2" outlined color="pink lighten-1">変更</v-btn>
+       <v-btn class="ma-2" outlined color="pink lighten-1" @click="Update(users.id)">変更</v-btn>
       </div>
     </v-card-text>
   </v-card>
@@ -31,7 +30,10 @@
   export default {
     data () {
       return{
-      users:[],
+				users:{
+					name: '',
+					email:''
+				}
     };
   },
   methods: {
@@ -40,6 +42,15 @@
       .then(res=>{
         this.users = res.data
       })
+    },
+    Update: function(users_id){
+      axios.put('/api/update',{
+        id:users_id,
+        user:this.users
+      })
+      .then(res => {
+        console.log(res);
+      this.users=res.data.user})
     }
   },
     

@@ -26,4 +26,8 @@ Route::group(['middleware' => 'api'], function() {
 
     // todo削除
     Route::post('/del',  'TodosController@destroy');
+
+    // user情報更新
+    Route::put('/update',  'UsersController@updateUsers');
+
 });

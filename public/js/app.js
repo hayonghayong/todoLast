@@ -1899,6 +1899,77 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Footer.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Footer.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      google: 'https://google.com'
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Header.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Header.vue?vue&type=script&lang=js& ***!
@@ -2030,11 +2101,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       selection: [],
-      todos: ['{{todo.name}}'],
+      todos: [],
       time: [],
       times: ['5分', '10分', '15分', '20分'],
       switch1: true
@@ -2130,6 +2209,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2138,9 +2246,14 @@ __webpack_require__.r(__webpack_exports__);
         title: "todo登録",
         text: "todo名",
         icon: "mdi-clipboard-check-multiple-outline"
-      } // {title:"スヌーズ登録",text:"スヌーズ時間",icon:"mdi-watch-vibrate"},
-      ],
-      todo: []
+      }],
+      times: [{
+        title: "スヌーズ登録",
+        text: "スヌーズ時間",
+        icon: "mdi-watch-vibrate"
+      }],
+      todo: [],
+      snoozes: []
     };
   },
   methods: {
@@ -2216,11 +2329,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      users: []
+      users: {
+        name: '',
+        email: ''
+      }
     };
   },
   methods: {
@@ -2229,6 +2344,17 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/getUsers').then(function (res) {
         _this.users = res.data;
+      });
+    },
+    Update: function Update(users_id) {
+      var _this2 = this;
+
+      axios.put('/api/update', {
+        id: users_id,
+        user: this.users
+      }).then(function (res) {
+        console.log(res);
+        _this2.users = res.data.user;
       });
     }
   },
@@ -38265,93 +38391,90 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-app",
-    { staticStyle: { height: "10px" } },
+    { staticStyle: { height: "0px" } },
     [
       _c(
         "v-footer",
         { attrs: { color: "pink lighten-1", dark: "", app: "" } },
         [
           _c(
-            "v-layout",
-            { attrs: { wrap: "" } },
+            "v-flex",
+            { attrs: { "xs2.5": "", sm6: "", md4: "" } },
             [
               _c(
-                "v-flex",
-                { attrs: { "xs2.5": "", sm6: "", md4: "" } },
+                "v-btn",
+                { attrs: { icon: "", to: "/home" } },
+                [_c("v-icon", [_vm._v("\n          mdi-home\n        ")])],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-flex",
+            { attrs: { "xs2.5": "", sm6: "", md4: "" } },
+            [
+              _c(
+                "v-btn",
+                { attrs: { icon: "", to: "/todoEdit" } },
                 [
-                  _c(
-                    "v-btn",
-                    { attrs: { icon: "", to: "/home" } },
-                    [_c("v-icon", [_vm._v("\n          mdi-home\n        ")])],
-                    1
-                  )
+                  _c("v-icon", [
+                    _vm._v(
+                      "\n          mdi-file-document-edit-outline\n        "
+                    )
+                  ])
                 ],
                 1
-              ),
-              _vm._v(" "),
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-flex",
+            { attrs: { "xs2.5": "", sm6: "", md4: "" } },
+            [
               _c(
-                "v-flex",
-                { attrs: { "xs2.5": "", sm6: "", md4: "" } },
+                "v-btn",
+                { attrs: { icon: "", to: "/usersEdit" } },
                 [
-                  _c(
-                    "v-btn",
-                    { attrs: { icon: "", to: "/todoEdit" } },
-                    [
-                      _c("v-icon", [
-                        _vm._v(
-                          "\n          mdi-file-document-edit-outline\n        "
-                        )
-                      ])
-                    ],
-                    1
-                  )
+                  _c("v-icon", [
+                    _vm._v("\n          mdi-account-edit\n        ")
+                  ])
                 ],
                 1
-              ),
-              _vm._v(" "),
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-flex",
+            { attrs: { "xs2.5": "", sm6: "", md4: "" } },
+            [
               _c(
-                "v-flex",
-                { attrs: { "xs2.5": "", sm6: "", md4: "" } },
+                "v-btn",
+                { attrs: { icon: "" } },
                 [
-                  _c(
-                    "v-btn",
-                    { attrs: { icon: "", to: "/usersEdit" } },
-                    [
-                      _c("v-icon", [
-                        _vm._v("\n          mdi-account-edit\n        ")
-                      ])
-                    ],
-                    1
-                  )
+                  _c("v-icon", [
+                    _vm._v("\n          mdi-email-outline\n        ")
+                  ])
                 ],
                 1
-              ),
-              _vm._v(" "),
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-flex",
+            { attrs: { xs2: "", sm6: "", md4: "" } },
+            [
               _c(
-                "v-flex",
-                { attrs: { "xs2.5": "", sm6: "", md4: "" } },
-                [
-                  _c(
-                    "v-btn",
-                    { attrs: { icon: "" } },
-                    [_c("v-icon", [_vm._v("mdi-email-outline\n        ")])],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "v-flex",
-                { attrs: { xs2: "", sm6: "", md4: "" } },
-                [
-                  _c(
-                    "v-btn",
-                    { attrs: { icon: "" } },
-                    [_c("v-icon", [_vm._v("\n        mdi-logout\n      ")])],
-                    1
-                  )
-                ],
+                "v-btn",
+                { attrs: { icon: "", href: "http://google.co.jp" } },
+                [_c("v-icon", [_vm._v("\n        mdi-logout\n        ")])],
                 1
               )
             ],
@@ -38469,8 +38592,8 @@ var render = function() {
                               _c(
                                 "v-col",
                                 {
-                                  staticStyle: { "padding-bottom": "0" },
-                                  attrs: { cols: "6", md: "2" }
+                                  staticStyle: { "padding-top": "15px" },
+                                  attrs: { cols: "3", md: "3" }
                                 },
                                 [
                                   _c(
@@ -38500,7 +38623,7 @@ var render = function() {
                                 "v-col",
                                 {
                                   staticStyle: { "padding-top": "0px" },
-                                  attrs: { cols: "6", md: "2" }
+                                  attrs: { cols: "5", md: "2" }
                                 },
                                 [
                                   _c("v-switch", {
@@ -38516,6 +38639,28 @@ var render = function() {
                                       expression: "switch1"
                                     }
                                   })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-col",
+                                {
+                                  staticStyle: { "padding-top": "10px" },
+                                  attrs: { cols: "3", md: "3" }
+                                },
+                                [
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      staticClass: "ma-2",
+                                      attrs: {
+                                        outlined: "",
+                                        color: "pink lighten-1"
+                                      }
+                                    },
+                                    [_vm._v("スタート")]
+                                  )
                                 ],
                                 1
                               )
@@ -38712,36 +38857,121 @@ var render = function() {
       }),
       _vm._v(" "),
       _c(
-        "tbody",
-        _vm._l(_vm.todos, function(todo) {
-          return _c("tr", { key: todo.id }, [
-            _c("td", [_vm._v(_vm._s(todo.id))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(todo.name))]),
+        "div",
+        { staticClass: "text-center", staticStyle: { "margin-top": "10%" } },
+        [_c("span", { staticClass: "title" }, [_vm._v("登録todo一覧")])]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticStyle: { "margin-top": "10%" } },
+        [
+          _c(
+            "v-simple-table",
+            _vm._l(_vm.todos, function(todo) {
+              return _c("tr", { key: todo.id }, [
+                _c("td", { staticClass: "text-left" }, [
+                  _c("span", { staticClass: "title" }, [
+                    _vm._v(_vm._s(todo.name) + " ")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  { staticClass: "text-left" },
+                  [
+                    _c(
+                      "v-icon",
+                      {
+                        on: {
+                          click: function($event) {
+                            return _vm.Delete(todo.id)
+                          }
+                        }
+                      },
+                      [_vm._v("\n    mdi-trash-can-outline\n    ")]
+                    )
+                  ],
+                  1
+                )
+              ])
+            }),
+            0
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm._l(_vm.times, function(time) {
+        return _c(
+          "v-card",
+          {
+            key: time.name,
+            staticClass: "mx-auto mt-5",
+            attrs: { width: "400px" }
+          },
+          [
+            _c("v-card-title", { staticClass: "text-center" }, [
+              _vm._v("\n      " + _vm._s(time.title) + "\n      ")
+            ]),
             _vm._v(" "),
             _c(
-              "td",
+              "v-container",
+              { staticStyle: { "padding-top": "0" }, attrs: { fluid: "" } },
               [
                 _c(
-                  "v-btn",
-                  {
-                    staticClass: "ma-2",
-                    attrs: { outlined: "", color: "pink lighten-1" },
-                    on: {
-                      click: function($event) {
-                        return _vm.Delete(todo.id)
-                      }
-                    }
-                  },
-                  [_vm._v("削除")]
+                  "v-card-text",
+                  { staticStyle: { "padding-top": "0" } },
+                  [
+                    _c(
+                      "v-row",
+                      [
+                        _c(
+                          "v-col",
+                          [
+                            _c("v-text-field", {
+                              attrs: {
+                                label: time.text,
+                                "prepend-icon": time.icon
+                              },
+                              model: {
+                                value: _vm.snoozes,
+                                callback: function($$v) {
+                                  _vm.snoozes = $$v
+                                },
+                                expression: "snoozes"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "v-btn",
+                              {
+                                staticClass: "ma-2",
+                                attrs: {
+                                  outlined: "",
+                                  color: "pink lighten-1",
+                                  type: "submit"
+                                },
+                                on: { click: _vm.addTodo }
+                              },
+                              [_vm._v("登録")]
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
                 )
               ],
               1
             )
-          ])
-        }),
-        0
-      )
+          ],
+          1
+        )
+      })
     ],
     2
   )
@@ -38791,22 +39021,30 @@ var render = function() {
                   _c("v-text-field", {
                     attrs: {
                       "prepend-icon": "mdi-account-circle",
-                      label: "名前",
-                      value: "aaa"
+                      label: "名前"
+                    },
+                    model: {
+                      value: _vm.users.name,
+                      callback: function($$v) {
+                        _vm.$set(_vm.users, "name", $$v)
+                      },
+                      expression: "users.name"
                     }
                   }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v(_vm._s(_vm.users.name))]),
                   _vm._v(" "),
                   _c("v-text-field", {
                     attrs: {
                       "prepend-icon": "mdi-email-outline",
-                      label: "メールアドレス",
-                      value: "ここに入れたいです"
+                      label: "メールアドレス"
+                    },
+                    model: {
+                      value: _vm.users.email,
+                      callback: function($$v) {
+                        _vm.$set(_vm.users, "email", $$v)
+                      },
+                      expression: "users.email"
                     }
-                  }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v(_vm._s(_vm.users.email))])
+                  })
                 ],
                 1
               ),
@@ -38819,7 +39057,12 @@ var render = function() {
                     "v-btn",
                     {
                       staticClass: "ma-2",
-                      attrs: { outlined: "", color: "pink lighten-1" }
+                      attrs: { outlined: "", color: "pink lighten-1" },
+                      on: {
+                        click: function($event) {
+                          return _vm.Update(_vm.users.id)
+                        }
+                      }
                     },
                     [_vm._v("変更")]
                   )
@@ -95416,15 +95659,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Footer_vue_vue_type_template_id_61a7c374___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Footer.vue?vue&type=template&id=61a7c374& */ "./resources/js/components/Footer.vue?vue&type=template&id=61a7c374&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Footer.vue?vue&type=script&lang=js& */ "./resources/js/components/Footer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Footer_vue_vue_type_template_id_61a7c374___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Footer_vue_vue_type_template_id_61a7c374___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -95438,6 +95683,20 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 if (false) { var api; }
 component.options.__file = "resources/js/components/Footer.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Footer.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/Footer.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Footer.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Footer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Footer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
