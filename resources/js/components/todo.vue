@@ -1,6 +1,5 @@
 <template>
-<v-app
- style= "height: 250px;"
+<v-app style="height:250px"
  >
 
   <v-card
@@ -19,9 +18,9 @@
       >
         <v-row>
         <v-col
-            cols="6"
-            md="2"
-            style="padding-bottom:0;"
+            cols="3"
+            md="3"
+            style="padding-top:15px;"
           >
         <v-btn
         icon
@@ -34,19 +33,27 @@
       </v-col>
 
       <v-col
-            cols="6"
+            cols="5"
             md="2"
-            style="padding-top: 0px;"
+            style="padding-top:0px;"
           >
       <v-switch 
       color= "pink lighten-1" v-model="switch1" :label="`スヌーズ `">
       </v-switch>
       </v-col>
+
+      <v-col 
+      cols="3"
+      md="3"
+      style="padding-top:10px;">
+      <v-btn class="ma-2" outlined color="pink lighten-1">スタート</v-btn>
+      </v-col>
         </v-row>
       </v-col>
         </v-row>
-  </v-container>
 
+  </v-container>
+  
       <v-select
         v-model="selection"
         :items="todos"
@@ -64,6 +71,7 @@
         label="タイマー時間を選択"
       ></v-select>
 
+
     </v-card-text>
   </v-card>
 
@@ -74,7 +82,7 @@
   export default {
     data: () => ({
       selection: [],
-      todos: ['{{todo.name}}'],
+      todos: [],
       time: [],
       times: ['5分', '10分', '15分', '20分'],
 
