@@ -2109,10 +2109,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      selection: [],
+      todo: [],
       todos: [],
       time: [],
       times: ['5分', '10分', '15分', '20分'],
@@ -2120,9 +2121,6 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    clear: function clear(selection) {
-      selection.val("");
-    },
     fetchTodos: function fetchTodos() {
       var _this = this;
 
@@ -38598,10 +38596,7 @@ var render = function() {
                                 [
                                   _c(
                                     "v-btn",
-                                    {
-                                      attrs: { icon: "" },
-                                      on: { click: _vm.clear }
-                                    },
+                                    { attrs: { icon: "" } },
                                     [
                                       _c(
                                         "v-icon",
@@ -38680,16 +38675,18 @@ var render = function() {
               _c("v-select", {
                 staticStyle: { "padding-top": "0" },
                 attrs: {
+                  "item-value": "id",
+                  "item-text": "name",
                   items: _vm.todos,
                   "prepend-icon": "mdi-clipboard-check-multiple-outline",
                   label: "to doを選択"
                 },
                 model: {
-                  value: _vm.selection,
+                  value: _vm.todo,
                   callback: function($$v) {
-                    _vm.selection = $$v
+                    _vm.todo = $$v
                   },
-                  expression: "selection"
+                  expression: "todo"
                 }
               }),
               _vm._v(" "),

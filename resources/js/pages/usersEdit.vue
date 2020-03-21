@@ -50,7 +50,8 @@
       })
       .then(res => {
         console.log(res);
-      this.users=res.data.user})
+      this.users=res.data.user
+      })
     }
   },
     

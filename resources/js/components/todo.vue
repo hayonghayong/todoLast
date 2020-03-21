@@ -24,7 +24,6 @@
           >
         <v-btn
         icon
-        @click="clear"
       >
       <v-icon x-large >
         mdi-trash-can-outline
@@ -55,13 +54,15 @@
   </v-container>
   
       <v-select
-        v-model="selection"
+        v-model="todo"
+         item-value="id"
+    item-text="name"
         :items="todos"
+       
         prepend-icon="mdi-clipboard-check-multiple-outline"
         label="to doを選択"
         style="padding-top:0;"
       >
-
       </v-select>
 
       <v-select
@@ -81,7 +82,7 @@
 <script>
   export default {
     data: () => ({
-      selection: [],
+      todo: [],
       todos: [],
       time: [],
       times: ['5分', '10分', '15分', '20分'],
@@ -90,16 +91,13 @@
       }),
     
      methods: {
-
-    clear: function (selection) {
-      selection.val("");
-    },
+    
 
     fetchTodos: function(){
       axios.get('/api/get')
       .then(res=>{
         console.log(res)
-        this.todos = res.data
+        this.todos=res.data
       })
     },
     },
